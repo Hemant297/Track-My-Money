@@ -1,10 +1,10 @@
-"use client";
+"use server";
 import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
-export async function Get(request: Request) {
+export async function GET(request: Request) {
   const user = await currentUser();
   if (!user) {
     redirect("/sign-in");
