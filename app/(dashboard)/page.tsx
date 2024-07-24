@@ -5,6 +5,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import React from "react";
 import CreateTranscationDialog from "./_components/CreateTranscationDialog";
+import Overview from "./_components/Overview";
 
 async function page() {
   const user = await currentUser();
@@ -50,6 +51,7 @@ async function page() {
           </div>
         </div>
       </div>
+      <Overview userSettings={userSettings}/>
     </div>
   );
 }

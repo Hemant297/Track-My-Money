@@ -21,7 +21,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html
         lang="en"
-        className="dark "
+        className="dark"
         style={{
           colorScheme: "dark",
         }}

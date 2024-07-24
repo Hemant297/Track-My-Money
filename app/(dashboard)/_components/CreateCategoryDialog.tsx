@@ -125,6 +125,7 @@ function CreateCategoryDialog({ type, successCallback }: Props) {
             Categories are used to group your transcations
           </DialogDescription>
         </DialogHeader>
+        
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField

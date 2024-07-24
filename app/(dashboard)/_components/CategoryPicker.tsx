@@ -27,8 +27,8 @@ interface Props {
 }
 
 function CategoryPicker({ type, onChange }: Props) {
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("");
+  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState("");
 
   useEffect(() => {
     if (!value) return;
@@ -38,7 +38,8 @@ function CategoryPicker({ type, onChange }: Props) {
   const categoriesQuery = useQuery({
     queryKey: ["categories", type],
     queryFn: () =>
-      fetch(`/api/categories?type=${type}`).then((res) => res.json()),
+      fetch(`/api/categories?type=${type}`)
+      .then((res) => res.json()),
   });
 
   const selectedCategory = categoriesQuery.data?.find(
@@ -70,9 +71,11 @@ function CategoryPicker({ type, onChange }: Props) {
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
+
+
       <PopoverContent className="w-[200px] p-0">
         <Command onSubmit={(e) => e.preventDefault()}>
-          <CommandInput placeholder="Search Category..." />
+          <CommandInput placeholder=" Search Category..." />
           <CreateCategoryDialog type={type} successCallback={successCallback} />
           <CommandEmpty>
             <p>Category Not Found</p>
