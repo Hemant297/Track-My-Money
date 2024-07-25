@@ -12,7 +12,11 @@
 # next.js
 /.next/
 /out/
-
+javascript/**/migrations/
+typescript/**/migrations/
+misc/**/migrations/
+databases/**/migrations/
+experimental/**/*.db
 # production
 /build
 
