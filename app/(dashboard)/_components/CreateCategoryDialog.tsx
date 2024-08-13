@@ -91,8 +91,15 @@ function CreateCategoryDialog({ type, successCallback }: Props) {
       toast.loading("Creating Category...", {
         id: "create-category",
       });
-      mutate(values);
-    },
+      const ok = mutate(values) ;
+      if(!ok){
+        toast.error("Unique Constraint Violated! Error!!", {
+        id: "create-category"
+      })
+      }
+
+    }
+   ,
     [mutate]
   );
 
