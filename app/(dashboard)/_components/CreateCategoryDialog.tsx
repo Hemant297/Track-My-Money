@@ -79,11 +79,11 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
       });
 
       setOpen((prev) => !prev);
+    },
       onError: () => {
         toast.error("Something went wrong", {
           id: "create-category",
         });
-      };
     },
   });
 
@@ -92,12 +92,7 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
       toast.loading("Creating Category...", {
         id: "create-category",
       });
-      const ok = mutate(values) ;
-      if(!ok){
-        toast.error("Unique Constraint Violated! Error!!", {
-        id: "create-category"
-      })
-      }
+      mutate(values);
 
     }
    ,

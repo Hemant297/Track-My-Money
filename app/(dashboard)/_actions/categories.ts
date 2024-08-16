@@ -45,7 +45,7 @@ import { Prisma } from "@prisma/client";
 export async function CreateCategory(form: CreateCategorySchemaType) {
   const parsedBody = CreateCategorySchema.safeParse(form);
   if (!parsedBody.success) {
-    throw new Error("bad request");
+    throw new Error("Bad request");
   }
 
   const user = await currentUser();
@@ -66,8 +66,9 @@ export async function CreateCategory(form: CreateCategorySchemaType) {
     });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
-      return "Error";
+      throw new Error("Unique constraint violated");
     }
+    throw new Error("Failed to create category");
   }
 }
 

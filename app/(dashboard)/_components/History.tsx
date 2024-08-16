@@ -41,10 +41,10 @@ function History({ userSettings }: { userSettings: UserSettings }) {
   });
 
   const dataAvailable =
-    historyDataQuery.data && historyDataQuery.data.lenght > 0;
+    historyDataQuery.data && historyDataQuery.data.length > 0;
 
   return (
-    <div className="conatiner">
+    <div className="container">
       <h2 className="mt-12 text-3xl font-bold">History</h2>
       <Card className="col-span-12 mt-2 w-full">
         <CardHeader className="gap-2">
@@ -166,7 +166,7 @@ function History({ userSettings }: { userSettings: UserSettings }) {
               <Card className="flex h-[300px] flex-col items-center justify-center bg-background">
                 No data for the selected period
                 <p className="text-sm text-muted-foreground">
-                  Try select a different Period .
+                  Try select a different Period or adding new transcations!
                 </p>
               </Card>
             )}
@@ -225,7 +225,7 @@ function TooltipRow({
   value: number;
   formatter: Intl.NumberFormat;
 }) {
-  const formattingFn = useCallback(() => {
+  const formattingFn = useCallback((value: number) => {
     return formatter.format(value);
   }, [formatter]);
 
@@ -236,7 +236,7 @@ function TooltipRow({
         <p className="text-sm text-muted-foreground">{label}</p>
         <div className={cn("text-sm font-bold", textColor)}>
           <CountUp
-            duration={0.5}
+            duration={0.4}
             preserveValue
             end={value}
             decimals={0}

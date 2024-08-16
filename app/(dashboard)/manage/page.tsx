@@ -28,7 +28,7 @@ function page() {
           <div>
             <p className="text-3xl font-bold">Manage</p>
             <p className="text-muted-foreground">
-              Manage your account settings and categories
+              Manage your account settings and categories !
             </p>
           </div>
         </div>
@@ -75,7 +75,7 @@ function CategoryList({ type }: { type: TranscationType }) {
                 <TrendingUp className="h-12 w-12 items-center rounded-lg bg-emerald-400/10 p-2 text-emerald-500" />
               )}
               <div>
-                {type === "income" ? "Incomes" : "Expenses"} categories
+                {type === "income" ? "Income's" : "Expense's"} Categories
                 <div className="text-sm text-muted-foreground">
                   Sorted by name
                 </div>
