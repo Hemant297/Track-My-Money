@@ -4,7 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import RootProviders from "@/components/providers/RootProviders";
 import { Toaster } from "@/components/ui/sonner";
-
+import Head from 'next/head'; 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Track My Money",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     { name: "Hemant Khemka" }
   ],
   icons: {
-    icon: '/favicon.png',
+    icon: "/favicon.png",
   },
 };
 
@@ -33,6 +33,9 @@ export default function RootLayout({
           colorScheme: "dark",
         }}
       >
+        <Head>
+          <link rel="icon" href="/favicon.png" />
+        </Head>
         <body className={inter.className}>
           <Toaster richColors position="bottom-right"/>
           <RootProviders>{children}</RootProviders>
