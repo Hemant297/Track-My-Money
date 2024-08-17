@@ -39,7 +39,6 @@ function History({ userSettings }: { userSettings: UserSettings }) {
         `/api/history-data?timeframe=${timeframe}&year=${period.year}&month=${period.month}`
       ).then((res) => res.json()),
   });
-
   const dataAvailable =
     historyDataQuery.data && historyDataQuery.data.length > 0;
 
@@ -75,6 +74,7 @@ function History({ userSettings }: { userSettings: UserSettings }) {
         </CardHeader>
         <CardContent>
           <SkeletonWrapper isLoading={historyDataQuery.isFetching}>
+            {console.log(dataAvailable)}
             {dataAvailable && (
               <ResponsiveContainer width={"100%"} height={300}>
                 <BarChart
