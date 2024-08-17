@@ -134,7 +134,7 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-28 ">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
             <FormField
               control={form.control}
               name="name"
@@ -159,11 +159,11 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
                       <PopoverTrigger asChild>
                         <Button
                           variant={"outline"}
-                          className="h-[100px] w-full"
+                          className="h-[80px] w-full"
                         >
                           {form.watch("icon") ? (
                             <div className="flex flex-col items-center gap-2">
-                              <span className="text-5xl" role="img">
+                              <span className="text-4xl" role="img">
                                 {field.value}
                               </span>
                               <p className="text-xs text-muted-foreground">
@@ -180,15 +180,35 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
                           )}
                         </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="w-full">
+                      {/* <PopoverContent className="w-full">
                         <Picker
                           data={data}
                           theme={theme.resolvedTheme}
+                          navPosition={"bottom"}
+                          maxFrequentRows={4}
+                          perLine={8}
+                          previewPosition={"top"}
+                          searchPosition={"static"}
                           onEmojiSelect={(emoji: { native: string }) => {
                             field.onChange(emoji.native);
                           }}
                         />
-                      </PopoverContent>
+                      </PopoverContent> */}
+                      <PopoverContent className="w-full mt-2" style={{ height: '250px' }}>
+  <Picker
+    data={data}
+    theme={theme.resolvedTheme}
+    navPosition={"bottom"}
+    maxFrequentRows={4}
+    perLine={8}
+    previewPosition={"top"}
+    searchPosition={"static"}
+    onEmojiSelect={(emoji: { native: string }) => {
+      field.onChange(emoji.native);
+    }}
+  />
+</PopoverContent>
+
                     </Popover>
                   </FormControl>
                   <FormDescription>Select a Category Icon</FormDescription>

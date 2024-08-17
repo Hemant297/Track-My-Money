@@ -45,7 +45,7 @@ export const columns: ColumnDef<TransactionHistoryRow>[] = [
   {
     accessorKey: 'category',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='category' />
+      <DataTableColumnHeader column={column} title='Category' />
     ),
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id))
@@ -68,7 +68,9 @@ export const columns: ColumnDef<TransactionHistoryRow>[] = [
   },
   {
     accessorKey: 'date',
-    header: 'Date',
+    header:  ({ column }) => (
+      <DataTableColumnHeader column={column} title='Date' />
+    ),
     cell: ({ row }) => {
       const date = new Date(row.original.date)
       const formattedDate = date.toLocaleDateString('default', {
