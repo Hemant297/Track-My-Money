@@ -74,10 +74,8 @@ const PRESETS: Preset[] = [
   { name: 'today', label: 'Today' },
   { name: 'yesterday', label: 'Yesterday' },
   { name: 'last7', label: 'Last 7 days' },
-  { name: 'last14', label: 'Last 14 days' },
   { name: 'last30', label: 'Last 30 days' },
   { name: 'thisWeek', label: 'This Week' },
-  { name: 'lastWeek', label: 'Last Week' },
   { name: 'thisMonth', label: 'This Month' },
   { name: 'lastMonth', label: 'Last Month' }
 ]
@@ -121,7 +119,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
   const [selectedPreset, setSelectedPreset] = useState<string | undefined>(undefined)
 
   const [isSmallScreen, setIsSmallScreen] = useState(
-    typeof window !== 'undefined' ? window.innerWidth < 960 : false
+    typeof window !== 'undefined' ? window.innerWidth < 800 : false
   )
 
   useEffect(() => {
@@ -336,9 +334,10 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
         }
         setIsOpen(open)
       }}
+      
     >
-      <PopoverTrigger asChild>
-        <Button size={'lg'} variant="outline">
+      <PopoverTrigger asChild >
+        <Button size={'lg'} variant="outline" >
           <div className="text-right">
             <div className="py-1">
               <div>{`${formatDate(range.from, locale)}${
@@ -361,7 +360,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
           </div>
         </Button>
       </PopoverTrigger>
-      <PopoverContent align={align} className="w-auto">
+      <PopoverContent align={align} className="w-auto relative sm:-translate-y-16 -translate-y-16">
         <div className="flex py-2">
           <div className="flex">
             <div className="flex flex-col">
@@ -478,7 +477,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
               </div>
               { isSmallScreen && (
                 <Select defaultValue={selectedPreset} onValueChange={(value:any) => { setPreset(value) }}>
-                  <SelectTrigger className="w-[180px] mx-auto mb-2">
+                  <SelectTrigger className="w-[180px] mx-auto mb-1">
                     <SelectValue placeholder="Select..." />
                   </SelectTrigger>
                   <SelectContent>
@@ -512,8 +511,8 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
             </div>
           </div>
           {!isSmallScreen && (
-            <div className="flex flex-col items-end gap-1 pr-2 pl-6 pb-6">
-              <div className="flex w-full flex-col items-end gap-1 pr-2 pl-6 pb-6">
+            <div className="flex flex-col items-end gap-1 pr-2 pl-6 pb-4">
+              <div className="flex w-full flex-col items-end gap-1 pr-2 pl-6 pb-4">
                 {PRESETS.map((preset) => (
                   <PresetButton
                     key={preset.name}
@@ -526,7 +525,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
             </div>
           )}
         </div>
-        <div className="flex justify-end gap-2 py-2 pr-4">
+        <div className="flex justify-end gap-2 pr-4">
           <Button
             onClick={() => {
               setIsOpen(false)

@@ -6,11 +6,18 @@ import RootProviders from "@/components/providers/RootProviders";
 import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Budget Tracker",
-  description: "An webApp to keep track of one's expenses",
+  title: "Track My Money",
+  description: "A web app to keep track of one's expenses",
+  authors: [
+    { name: "Harsh Bansal" },
+    { name: "Hemant Khemka" }
+  ],
+  icons: {
+    icon: '/favicon.png',
+  },
 };
+
 
 export default function RootLayout({
   children,
