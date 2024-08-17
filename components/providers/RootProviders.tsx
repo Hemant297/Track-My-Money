@@ -17,7 +17,7 @@ function RootProviders({ children }: { children: ReactNode }) {
     >
       {children}
     </ThemeProvider>
-    <ReactQueryDevtools initialIsOpen={false}/>
+
     </QueryClientProvider>
   );
 }
