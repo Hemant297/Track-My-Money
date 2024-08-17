@@ -9,15 +9,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Track My Money",
   description: "A web app to keep track of one's expenses",
-  authors: [
-    { name: "Harsh Bansal" },
-    { name: "Hemant Khemka" }
-  ],
-  icons: {
-    icon: '/favicon.png',
-  },
+  authors: [{ name: "Harsh Bansal" }, { name: "Hemant Khemka" }],
 };
-
 
 export default function RootLayout({
   children,
@@ -34,7 +27,7 @@ export default function RootLayout({
         }}
       >
         <body className={inter.className}>
-          <Toaster richColors position="bottom-right"/>
+          <Toaster richColors position="bottom-right" />
           <RootProviders>{children}</RootProviders>
         </body>
       </html>
