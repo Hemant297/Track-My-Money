@@ -10,7 +10,8 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.db"
+  url      = env("POSTGRES_PRISMA_URL")
+  directUrl = end("POSTGRES_URL_NON_POOLING")
 }
 model UserSettings{
   userId String @id
