@@ -39,12 +39,11 @@ function History({ userSettings }: { userSettings: UserSettings }) {
         `/api/history-data?timeframe=${timeframe}&year=${period.year}&month=${period.month}`
       ).then((res) => res.json()),
   });
-
   const dataAvailable =
-    historyDataQuery.data && historyDataQuery.data.lenght > 0;
+    historyDataQuery.data && historyDataQuery.data.length > 0;
 
   return (
-    <div className="conatiner">
+    <div className="container">
       <h2 className="mt-12 text-3xl font-bold">History</h2>
       <Card className="col-span-12 mt-2 w-full">
         <CardHeader className="gap-2">
@@ -75,6 +74,7 @@ function History({ userSettings }: { userSettings: UserSettings }) {
         </CardHeader>
         <CardContent>
           <SkeletonWrapper isLoading={historyDataQuery.isFetching}>
+            {console.log(dataAvailable)}
             {dataAvailable && (
               <ResponsiveContainer width={"100%"} height={300}>
                 <BarChart
