@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: "Track My Money",
   description: "A web app to keep track of one's expenses",
   authors: [{ name: "Harsh Bansal" }, { name: "Hemant Khemka" }],
+  icons: {
+
+    icon: '/favicon.ico',
+  }
 };
 
 export default function RootLayout({
