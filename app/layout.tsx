@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Harsh Bansal" }, { name: "Hemant Khemka" }],
   icons: {
 
-    icon: '/favicon.ico',
+    icon: '/favicon2.png',
   }
 };
 
@@ -31,7 +31,7 @@ export default function RootLayout({
         }}
       >
         <Head>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon2.png" />
         </Head>
         <body className={inter.className}>
           <Toaster richColors position="bottom-right" />
